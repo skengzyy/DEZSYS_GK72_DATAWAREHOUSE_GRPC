@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+option java_package = "dezsys.grpc";
+option java_multiple_files = true;
+
+service DataWarehouseService {
+  rpc SayHello (HelloRequest) returns (HelloReply);
+  rpc StoreRecord (WarehouseRecord) returns (WarehouseReply);
+}
+
+message HelloRequest {
+  string name = 1;
+}
+
+message HelloReply {
+  string message = 1;
+}
+
+message WarehouseRecord {
+  int32 id = 1;
+  string product = 2;
+  int32 quantity = 3;
+}
+
+message WarehouseReply {
+  string status = 1;
+}
+
